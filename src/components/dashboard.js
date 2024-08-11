@@ -9,7 +9,6 @@ const Dashboard = ({ banner, updateBanner }) => {
     isVisible: true
   });
 
-  // Set form state when banner data is received
   useEffect(() => {
     if (banner) {
       setFormState({
@@ -31,7 +30,8 @@ const Dashboard = ({ banner, updateBanner }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/banner', formState)
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/'; // Fallback URL for local development
+    axios.post(`${apiUrl}/api/banner`, formState)
       .then(() => {
         updateBanner(formState);
         // Reset form fields after update

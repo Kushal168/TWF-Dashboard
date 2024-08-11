@@ -1,0 +1,103 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .App {
+    text-align: center;
+  }
+  
+  .banner {
+    background-color: #ffcc00;
+    padding: 20px;
+    position: relative;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .banner h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .banner p {
+    margin: 10px 0 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .banner a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .banner a:hover {
+    background-color: #555;
+  }
+  
+  .dashboard {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .dashboard h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .dashboard form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .dashboard input[type="text"],
+  .dashboard input[type="number"] {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .dashboard input[type="checkbox"] {
+    margin-top: 5px;
+  }
+  
+  .dashboard button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .dashboard button:hover {
+    background-color: #555;
+  }
+  

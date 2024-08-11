@@ -15,7 +15,7 @@ const App = () => {
   const [timeLeft, setTimeLeft] = useState(0);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/banner')
+    axios.get(`${process.env.REACT_APP_API_URL}/banner`)
       .then((response) => {
         const data = response.data;
         setBanner(data);

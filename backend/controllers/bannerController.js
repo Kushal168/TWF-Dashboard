@@ -1,20 +1,35 @@
-// controllers/bannerController.js
 const db = require('../config/db');
 
-// Get banner data
+// exports.getBanner = (req, res) => {
+//   db.query('SELECT * FROM banner LIMIT 1', (err, result) => {
+//     if (err) throw err;
+//     res.send(result[0]);
+//   });
+// };
+// Example: Node.js with Express
+// app.get('/api/banner', (req, res) => {
 exports.getBanner = (req, res) => {
-  db.query('SELECT * FROM banner ORDER BY id DESC LIMIT 1', (err, results) => {
-    if (err) return res.status(500).send('Database error');
-    res.json(results[0] || {});
-  });
-};
+    db.query('SELECT * FROM banner', (err, results) => {
+      if (err) {
+        return res.status(500).send('Database error');
+      }
+      if (results.length === 0) {
+        // Return an empty object or default data
+        return res.json({ description: '', timer: 0, link: '', isVisible: false });
+      }
+      res.json(results[0]);
+    });
+  };
+  
 
-// Update or insert banner data
 exports.updateBanner = (req, res) => {
   const { description, timer, link, isVisible } = req.body;
-  const query = 'REPLACE INTO banner (id, description, timer, link, isVisible) VALUES (1, ?, ?, ?, ?)';
-  db.query(query, [description, timer, link, isVisible], (err) => {
-    if (err) return res.status(500).send('Database error');
-    res.send('Banner updated successfully!');
-  });
+  db.query(
+    'UPDATE banner SET description = ?, timer = ?, link = ?, isVisible = ? WHERE id = 1',
+    [description, timer, link, isVisible],
+    (err, result) => {
+      if (err) throw err;
+      res.send('Banner updated successfully');
+    }
+  );
 };
